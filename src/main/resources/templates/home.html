@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.5/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen"/>
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Home Page</h1>
+	<br>
+	<a href="/datmon">Go To Dat Mon</a>
+	<br>
+
+	<p th:text="${name}"></p>
+	<br>
+	
+	<style>
+		
+		table {
+		  border: 1px solid black;
+		  table-layout: fixed;
+		  width: 200px;
+		}
+	
+		th,
+		td {
+		  border: 1px solid black;
+		  width: 100px;
+		  overflow: hidden;
+		}
+		
+	</style>
+
+	
+	
+	<div class="container">
+	        <h2>Product List</h2>
+	        <table class="table table-striped">
+	            <tr>
+	                <th>Id</th>
+	                <th>Name</th>
+	                <th>Description</th>
+	                <th>SubProducts</th>
+	                <th>Images</th>
+	                <th>Show</th>
+	                <th>Edit</th>
+	                <th>Delete</th>
+	            </tr>
+	            <tr th:each="mon : ${listMon}">
+	                <td th:text="${mon.id}"></td>
+	                <td th:text="${mon.name}">...</td>
+					<td th:text="${mon.description}">...</td>
+					<td th:text="${mon.subProducts}">...</td>
+					<td th:text="${mon.images}">...</td>
+	                
+	                <td><a th:href="${'/product/show/' + mon.id}">View</a> </td>
+	                <td><a th:href="${'/product/edit/' + mon.id}">Edit</a> </td>
+	                <td><a th:href="${'/product/delete/' + mon.id}">Delete</a> </td>
+	            </tr>
+	        </table>
+	    </div>
+	    <div class="row">
+	        <div class="col-sm-3">
+	            <a href="/addmon">Them Mon</a>
+	        </div>
+	    </div>
+	</div>
+
+
+
+</body>
+</html>

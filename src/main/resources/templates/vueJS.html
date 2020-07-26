@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>VueJS + Springboot</title>
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+
+	<!-- <p th:text="${msg}">Message</p> <br> -->
+	
+	
+	<div id="app">
+		<h1>This is VueJS Page</h1> <br> <br>
+		
+		<ul>
+			<li v-for="item in mons" @click="showMon(item)">{{ item.name }}</li>
+		</ul>
+		
+		
+		<div class="details" v-show="showDetails">
+			<h2>Mon Details</h2> <br>
+				<p>
+					<a href="'https://twitter.com/' + selectedMon.id" target="_blank">
+						@{{ selectedMon.name }} - {{ selectedMon.description }}
+					</a>
+				</p>
+		</div>
+		
+		
+	</div> <br>
+	
+	<p @click="showMon()"></p>
+	
+	
+	
+	
+	<script>
+		
+		const apiURL = "http://localhost:8081/list";
+		new Vue({
+			
+			el: '#app',
+			data() {
+				return {
+					mons: [],
+					showDetails: false,
+					selectedMon: ''
+				}
+			},
+			methods: {
+				showMon(mon){
+					this.showDetails = true;
+					this.selectedMon = mon;
+				},
+				
+			},
+			created(){
+				fetch(apiURL)
+					.then(respones => {
+						return respones.json();
+					})
+					.then(mons => {
+						this.mons = mons;
+					})
+			}
+			
+		});
+			
+		
+	
+	</script>
+	
+
+</body>
+</html>
