@@ -13,7 +13,7 @@ import com.tanky.MrVan.Repo.MonRepository;
 import com.tanky.MrVan.Service.MonService;
 
 @RestController
-@RequestMapping("/list")
+@RequestMapping("/api/list")
 public class ThucDonMonTheoNgay_API {
 
 	@Autowired

@@ -5,6 +5,8 @@ public class GeneralValue {
 	home home;
 	
 	WhyChooseWe why_choose_we;
+	
+	Introduction introductions;
 
 	public home getHome() {
 		return home;
@@ -21,6 +23,18 @@ public class GeneralValue {
 	public void setWhy_choose_we(WhyChooseWe why_choose_we) {
 		this.why_choose_we = why_choose_we;
 	}
+
+	public Introduction getIntroductions() {
+		return introductions;
+	}
+
+	public void setIntroductions(Introduction introductions) {
+		this.introductions = introductions;
+	}
+
+	
+	
+	
 	
 	
 

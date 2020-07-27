@@ -19,7 +19,7 @@ import com.tanky.MrVan.Service.MonService;
 import com.tanky.MrVan.dto.MonDTO;
 
 @RestController
-@RequestMapping("/mon")
+@RequestMapping("/api/mon")
 public class Mon_API {
 
 	@Autowired

@@ -9,6 +9,8 @@ public class WhyChooseWe {
 	
 	private Map<String, String> listsBenefit;
 	
+	private String even;
+	
 	public WhyChooseWe() {
 		// TODO Auto-generated constructor stub
 	}
@@ -45,6 +47,20 @@ public class WhyChooseWe {
 	public void setListsBenefit(Map<String, String> listsBenefit) {
 		this.listsBenefit = listsBenefit;
 	}
+
+
+
+	public String getEven() {
+		return even;
+	}
+
+
+
+	public void setEven(String even) {
+		this.even = even;
+	}
+	
+	
 
 	
 	
