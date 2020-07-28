@@ -12,6 +12,6 @@ public interface MonRepository extends MongoRepository<MonEntity, String> {
 
 	MonEntity findOneByName(String name);
 	MonEntity findOneByPrice(int price);
-	List<MonEntity> findAllByDay(String day);
+	List<MonEntity> findAllByDay(int day);
 	
 }

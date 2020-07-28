@@ -1,10 +1,12 @@
 package com.tanky.MrVan.Service;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.w3c.dom.ls.LSInput;
 
 import com.tanky.MrVan.Entity.MonEntity;
 import com.tanky.MrVan.Repo.MonRepository;
@@ -16,6 +18,10 @@ public class MonService {
 	private MonRepository monRepository;
 	
 	
+	public List<MonEntity> getNullEntity() {
+		
+		return new ArrayList<MonEntity>();
+	}
 	
 	public List<MonEntity> getAll() {
 		
@@ -27,7 +33,7 @@ public class MonService {
 		return monRepository.findById(idMon).get();
 	}
 	
-	public List<MonEntity> findAllByDay(String day) {
+	public List<MonEntity> findAllByDay(int day) {
 		
 		return monRepository.findAllByDay(day);
 	}

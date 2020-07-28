@@ -12,29 +12,18 @@ import org.springframework.data.mongodb.core.mapping.Field;
 public class MonEntity {
 
 	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 	
-//	@Column(name = "name")
-
 	private String name;
 	
-//	@Column(name = "day")
-	private String day;
+	private int day;
 	
-//	@Column(name = "description")
     private String description;
 	
-//	@Column(name = "price")
     private float price;
 	
-//	@Column(name = "amount")
     private int amount;
-	
-	
-//	@OneToMany(mappedBy = "idMon")	
-//    private List<Image_MonEntity> images;
-    
+
     
 
 	public MonEntity() {
@@ -81,28 +70,17 @@ public class MonEntity {
 		this.description = description;
 	}
 	
-	
-
-	
-
-//	public List<Image_MonEntity> getImages() {
-//		return images;
-//	}
-//
-//	public void setImages(List<Image_MonEntity> images) {
-//		this.images = images;
-//	}
-
-	public String getDay() {
-		return day;
-	}
-
-	public void setDay(String day) {
-		this.day = day;
-	}
 
 	public float getPrice() {
 		return price;
+	}
+
+	public int getDay() {
+		return day;
+	}
+
+	public void setDay(int day) {
+		this.day = day;
 	}
 
 	public void setPrice(float price) {

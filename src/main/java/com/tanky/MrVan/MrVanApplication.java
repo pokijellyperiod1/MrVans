@@ -13,7 +13,7 @@ import com.tanky.MrVan.Repo.MonRepository;
 @SpringBootApplication
 @ComponentScan(basePackages = "com.tanky.MrVan")
 @EnableMongoRepositories(basePackages = "com.tanky.MrVan.Repo")
-@CrossOrigin
+@CrossOrigin	
 public class MrVanApplication implements CommandLineRunner {
 
 	@Autowired
