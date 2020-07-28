@@ -7,8 +7,7 @@ import com.tanky.MrVan.dto.MonDTO;
 
 @Component
 public class MonConvert {
-
-	// Con lai setImages vs setSubProducts
+	
 	public MonDTO from_Entity_To_DTO(MonEntity entity) {
 		
 		MonDTO monDTO = new MonDTO();
@@ -23,7 +22,6 @@ public class MonConvert {
 	}
 	
 	
-	// Con lai setImages vs setSubProducts
 	public MonEntity from_DTO_To_Entity(MonDTO monDTO) {
 		
 		MonEntity monEntity = new MonEntity();

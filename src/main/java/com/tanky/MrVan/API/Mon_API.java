@@ -27,18 +27,12 @@ public class Mon_API {
 	
 	@Autowired
 	private MonConvert monConvert;
-	
-	
-	
-	//Sao ko thu chuyen thanh Entity ma lai chuyen thanh DTO
+
 	@GetMapping("/{id}")
 	public MonEntity getOne(@PathVariable String id) {
 		
 		return monService.findOneById(id);
 	}
-	
-	
-	
 	
 	
 	@PostMapping

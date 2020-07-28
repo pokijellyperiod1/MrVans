@@ -18,27 +18,21 @@ public class SanPhamService{
 	private SanPhamRepo sanPhamRepo;
 	
 	public List<SanPhamEntity> getAll() {
-		
 		return sanPhamRepo.findAll();
 	}
 	
 	public SanPhamEntity findOneById(int id) {
-		
 		return sanPhamRepo.findOneById(id);
 	}
 	
-	
 	public SanPhamEntity save(SanPhamEntity sanPhamEntity) {
-		
 		return sanPhamRepo.save(sanPhamEntity);
 	}
 	
 	public void save(List<SanPhamEntity> listSanPhamEntity) {
-		
 		for (SanPhamEntity entity : listSanPhamEntity) {
 			sanPhamRepo.save(entity);
 		}
-		System.out.println("Save list San Pham thanh cong");
 		
 	}
 	

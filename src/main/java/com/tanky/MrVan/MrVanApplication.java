@@ -14,7 +14,7 @@ import com.tanky.MrVan.Repo.MonRepository;
 @ComponentScan(basePackages = "com.tanky.MrVan")
 @EnableMongoRepositories(basePackages = "com.tanky.MrVan.Repo")
 @CrossOrigin	
-public class MrVanApplication implements CommandLineRunner {
+public class MrVanApplication {
 
 	@Autowired
 	private MonRepository monRepository;
@@ -23,19 +23,4 @@ public class MrVanApplication implements CommandLineRunner {
 		SpringApplication.run(MrVanApplication.class, args);
 	}
 
-	@Override
-	public void run(String... args) throws Exception {
-//		System.out.println("Ten: " + monRepository.findOneByName("name2").toString());
-//		System.out.println("Gia: " + monRepository.findOneByPrice(123).toS	tring());
-//		
-//		List<MonEntity> lists=  new ArrayList<>();
-//		String day = "tuesday";
-//		lists = monRepository.findAllByDay(day);
-//		System.out.println("Danh sach sap xep theo " + day );
-//		for (MonEntity monEntity : lists) {
-//			System.out.print(monEntity.getName() + "\t");
-//		}
-		
-	}
-		
 }	

@@ -14,8 +14,6 @@ public class WhyChooseWe {
 	public WhyChooseWe() {
 		// TODO Auto-generated constructor stub
 	}
-
-	
 	
 	public WhyChooseWe(Map<String, String> customerCommand, Map<String, String> listsBenefit) {
 		super();
@@ -23,38 +21,25 @@ public class WhyChooseWe {
 		this.listsBenefit = listsBenefit;
 	}
 
-
-
 	public Map<String, String> getCustomerCommand() {
 		return customerCommand;
 	}
-
-
 
 	public void setCustomerCommand(Map<String, String> customerCommand) {
 		this.customerCommand = customerCommand;
 	}
 
-
-
-
-
 	public Map<String, String> getListsBenefit() {
 		return listsBenefit;
 	}
-
 
 	public void setListsBenefit(Map<String, String> listsBenefit) {
 		this.listsBenefit = listsBenefit;
 	}
 
-
-
 	public String getEven() {
 		return even;
 	}
-
-
 
 	public void setEven(String even) {
 		this.even = even;
