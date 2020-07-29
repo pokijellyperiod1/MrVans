@@ -14,7 +14,7 @@ import com.tanky.MrVan.Entity.MonEntity;
 import com.tanky.MrVan.Service.MonService;
 
 @RestController
-@RequestMapping("/api/list")
+@RequestMapping("/api/menu")
 public class ThucDonMonTheoNgay_API {
 
 	@Autowired

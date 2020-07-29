@@ -8,7 +8,7 @@ public class MonDTO {
 	private String day;
     private String name;
     private String description;
-    private float price;
+    private String price;
     private int amount;
    
     
@@ -31,10 +31,10 @@ public class MonDTO {
 		this.description = description;
 	}
 	
-	public float getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public void setPrice(float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public int getAmount() {

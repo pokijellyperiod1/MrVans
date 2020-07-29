@@ -16,7 +16,7 @@ import com.tanky.MrVan.Entity.SanPhamEntity;
 import com.tanky.MrVan.Service.SanPhamService;
 
 @RestController
-@RequestMapping("/api/sanpham")
+@RequestMapping("/api/products")
 public class SanPham_API {
 
 	@Autowired

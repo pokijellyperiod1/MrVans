@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.tanky.MrVan.dto.Image;
+
 @Document(collection = "mon")
 public class MonEntity {
 
@@ -16,9 +18,11 @@ public class MonEntity {
 	
     private String description;
 	
-    private float price;
+    private String price = "";
 	
     private int amount;
+    
+    private ImageEntity imageEntity;
 
 
 	public MonEntity() {
@@ -31,7 +35,7 @@ public class MonEntity {
 	}
 	
 
-	public MonEntity(String id, String name, String description, float price, int amount) {
+	public MonEntity(String id, String name, String description, String price, int amount) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -66,7 +70,7 @@ public class MonEntity {
 	}
 	
 
-	public float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
@@ -78,7 +82,7 @@ public class MonEntity {
 		this.day = day;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 
@@ -89,6 +93,15 @@ public class MonEntity {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
+
+	public ImageEntity getImageEntity() {
+		return imageEntity;
+	}
+
+	public void setImageEntity(ImageEntity imageEntity) {
+		this.imageEntity = imageEntity;
+	}
+	
 	
 	
 	
