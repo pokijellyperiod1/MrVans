@@ -1,5 +1,7 @@
 package com.tanky.MrVan.Entity;
 
+import javax.websocket.OnError;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -18,12 +20,12 @@ public class MonEntity {
 	
     private String description;
 	
-    private String price = "";
+    private String price = "Liên hệ";
 	
     private int amount;
     
-    private ImageEntity imageEntity;
-
+    private String imageURL = "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png";
+    
 
 	public MonEntity() {
 		super();
@@ -94,13 +96,15 @@ public class MonEntity {
 		this.amount = amount;
 	}
 
-	public ImageEntity getImageEntity() {
-		return imageEntity;
+	public String getImageURL() {
+		return imageURL;
 	}
 
-	public void setImageEntity(ImageEntity imageEntity) {
-		this.imageEntity = imageEntity;
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
 	}
+
+
 	
 	
 	

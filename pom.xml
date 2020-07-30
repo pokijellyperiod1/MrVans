@@ -37,11 +37,14 @@
 		</dependency>
 
 
-		<!-- Khi nhung folder Frontend vao thi nho xoa cai Thymeleaf nay, neu ko la ko qua trang index dc  -->
+		<!-- Khi nhung folder Frontend vao thi nho xoa cai Thymeleaf nay, neu ko 
+			la ko qua trang index dc -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+
+		
 
 
 

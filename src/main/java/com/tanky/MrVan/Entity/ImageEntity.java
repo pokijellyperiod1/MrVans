@@ -10,6 +10,11 @@ public class ImageEntity {
     private String title;
     private Binary image;
     
+    
+	public ImageEntity(String title) {
+		super();
+		this.title = title;
+	}
 	public String getId() {
 		return id;
 	}

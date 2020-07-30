@@ -1,28 +1,38 @@
-package com.tanky.MrVan.dto;
+package com.tanky.MrVan.Entity;
 
-import java.util.HashMap;
 import java.util.Map;
 
-public class GeneralValue {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-	//home
-//	home home;
+@Document(collection = "general_value")
+public class GeneralValue_Entity {
+
+	@Id
+	private String id;
+
 	private String slogan;
 	private String subSlogan;
 	private String text;
 	
-	// WhyChooseWe
-//	WhyChooseWe why_choose_we;
-	private Map<String, ?> customerCommand = new HashMap<String, String>();
+
+	private Map<String, String> customerCommand;
 	private Map<String, String> listsBenefit;
 	private String even;
 	
-	//Introduction
-//	Introduction introductions;
+
 	private String introduction;
-	private String vision;
+	private String vision;	
 	private String mission;
 	private Map<String, String> contact;
+	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getSlogan() {
 		return slogan;
 	}
@@ -41,7 +51,7 @@ public class GeneralValue {
 	public void setText(String text) {
 		this.text = text;
 	}
-	public Map<String, ?> getCustomerCommand() {
+	public Map<String, String> getCustomerCommand() {
 		return customerCommand;
 	}
 	public void setCustomerCommand(Map<String, String> customerCommand) {
@@ -83,11 +93,5 @@ public class GeneralValue {
 	public void setContact(Map<String, String> contact) {
 		this.contact = contact;
 	}
-
 	
-	
-	
-	
-	
-
 }

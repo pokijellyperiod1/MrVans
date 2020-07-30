@@ -1,9 +1,12 @@
 package com.tanky.MrVan.Service;
 
-import java.util.List;
+import java.io.IOException;
 
+import org.bson.BsonBinarySubType;
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.tanky.MrVan.Entity.ImageEntity;
 import com.tanky.MrVan.Repo.ImageRepo;
@@ -14,17 +17,16 @@ public class ImageService {
 	@Autowired
 	private ImageRepo imageRepo;
 	
-	public List<ImageEntity> getAll() {
-		return imageRepo.findAll();
-	}
-	
-	public ImageEntity getOneImage(String id) {
-		return imageRepo.findOneById(id);
-	}
-	
-	public ImageEntity save(ImageEntity entity) {
-		return imageRepo.save(entity);
-	}
-	
+	public String addPhoto(String title, MultipartFile file) throws IOException { 
+        ImageEntity photo = new ImageEntity(title); 
+        photo.setImage(
+          new Binary(BsonBinarySubType.BINARY, file.getBytes())); 
+        photo = imageRepo.insert(photo); return photo.getId(); 
+    }
+ 
+    public ImageEntity getPhoto(String id) { 
+        return imageRepo.findById(id).get(); 
+    }
+		
 	
 }
