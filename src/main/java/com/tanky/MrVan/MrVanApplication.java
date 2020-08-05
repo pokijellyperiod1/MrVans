@@ -16,7 +16,7 @@ import com.tanky.MrVan.Repo.MonRepository;
 @CrossOrigin	
 public class MrVanApplication {
 
-	@Autowired
+	@Autowired	
 	private MonRepository monRepository;
 	
 	public static void main(String[] args) {
