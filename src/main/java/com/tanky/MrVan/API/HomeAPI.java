@@ -102,21 +102,21 @@ public class HomeAPI {
 	@GetMapping("/introduction")
 	public contact intro() {
 		contact contact = new contact();
-		contact.setHeader("“Con đường ngắn nhất để chạm đến trái tim là ... đi qua dạ dày”. Chúng tôi yêu sức khỏe của mình và tin\n" + 
-				"chắc rằng bạn cũng thế. Để có 1 trái tim khỏe mạnh thì việc cho bao tử tiếp nhận những thực phẩm an\n" + 
-				"toàn, chất lượng là cần thiết. Công ty TNHH Green Gro ra đời với tiêu chí như thế:");
+		contact.setHeader("“Con đường ngắn nhất để chạm đến trái tim là ... đi qua dạ dày”. Chúng tôi yêu sức khỏe của mình và tin " + 
+				"chắc rằng bạn cũng thế. Để có 1 trái tim khỏe mạnh thì việc cho bao tử tiếp nhận những thực phẩm an " + 
+				"toàn, chất lượng là cần thiết. Công ty TNHH Green Gro ra đời với tiêu chí như thế");
 		
 		List<Benefit> listBenefit = new ArrayList();
 		Benefit benefit = new Benefit();
 		benefit.setName("Chuyên cung cấp nguyên liệu, thực phẩm tươi sạch");
 		
 		List<String> lists = new ArrayList();
-			lists.add("Nấm bào ngư xám/ Nấm mối đen: Trại nấm chính chủ của gia đình, sản xuất theo công\n" + 
-					"nghệ thông minh kép kín, an toàn vệ sinh. Từng sản phẩm luôn được lựa chọn kỹ lưỡng trao\n" + 
+			lists.add("Nấm bào ngư xám/ Nấm mối đen: Trại nấm chính chủ của gia đình, sản xuất theo công " + 
+					"nghệ thông minh kép kín, an toàn vệ sinh. Từng sản phẩm luôn được lựa chọn kỹ lưỡng trao " + 
 					"đến tay người tiêu dùng.");
-			lists.add("Xúc xích tươi: Nếu bạn là tín đồ của xúc xích nhưng chẳng thể tìm ra nơi sản xuất an toàn vệ\n" + 
-					"sinh thực phẩm tại khu vực Thành Phố Hồ Chí Minh hay xa hơn là khắp 63 Tỉnh, Thành Phố\n" + 
-					"còn lại của Việt Nam ? Đừng lo lắng XÚC XÍCH MR. VANS hứa hẹn 1 cực phẩm chạm\n" + 
+			lists.add("Xúc xích tươi: Nếu bạn là tín đồ của xúc xích nhưng chẳng thể tìm ra nơi sản xuất an toàn vệ " + 
+					"sinh thực phẩm tại khu vực Thành Phố Hồ Chí Minh hay xa hơn là khắp 63 Tỉnh, Thành Phố " + 
+					"còn lại của Việt Nam ? Đừng lo lắng XÚC XÍCH MR. VANS hứa hẹn 1 cực phẩm chạm " + 
 					"thẳng đến con tim kể cả những người khó tính.");
 		benefit.setText(lists);
 		
@@ -125,15 +125,15 @@ public class HomeAPI {
 		Benefit benefit2 = new Benefit();
 		benefit2.setName("Cơm trưa văn phòng");
 		List<String> lists2 = new ArrayList();
-		lists2.add("Từ những nguyên liệu tươi ngon, giá thành hợp lý, bạn không phải nghĩ\n" + 
-				"“TRƯA NAY ĂN GÌ?”. Hãy để Mr.Vans giao tận nơi, phục vụ tận chổ, không những ăn ngon mà\n" + 
+		lists2.add("Từ những nguyên liệu tươi ngon, giá thành hợp lý, bạn không phải nghĩ " + 
+				"“TRƯA NAY ĂN GÌ?”. Hãy để Mr.Vans giao tận nơi, phục vụ tận chổ, không những ăn ngon mà " + 
 				"còn nhiều khuyến mãi cho KH thân thiết.");
 		benefit2.setText(lists2);
 		listBenefit.add(benefit2);
 		
 		contact.setParagraph(listBenefit);
 		
-		contact.setFooter("Chúng tôi hiểu KH của mình cần gì và luôn mong muốn đem lại giá trị tốt nhất cho KH. Đó cũng chính là\n" + 
+		contact.setFooter("Chúng tôi hiểu KH của mình cần gì và luôn mong muốn đem lại giá trị tốt nhất cho KH. Đó cũng chính là " + 
 				"khẩu hiệu hàng đầu của công ty “Thấu hiểu từng bữa cơm”");
 		
 		return contact;
@@ -147,9 +147,9 @@ public class HomeAPI {
 	
 	@GetMapping("/mission")
 	public Mission mission() {
-		return new Mission("Bằng chính sự tận tâm và trách nhiệm của mình, Mr.Vans sẽ luôn đồng hành thấu hiểu khách hàng của\n" + 
-				"mình như những người bạn. Mr.Vans cam kết sẽ mang đến những sản phẩm chất lượng tốt, có giá trị dinh\n" + 
-				"dưỡng cao cũng như làm KH hài lòng về dịch vụ, giá cả, đóng góp một phần nào đó nâng cao sức khỏe\n" + 
+		return new Mission("Bằng chính sự tận tâm và trách nhiệm của mình, Mr.Vans sẽ luôn đồng hành thấu hiểu khách hàng của " + 
+				"mình như những người bạn. Mr.Vans cam kết sẽ mang đến những sản phẩm chất lượng tốt, có giá trị dinh " + 
+				"dưỡng cao cũng như làm KH hài lòng về dịch vụ, giá cả, đóng góp một phần nào đó nâng cao sức khỏe " + 
 				"của người tiêu dùng.");
 	}
 	
