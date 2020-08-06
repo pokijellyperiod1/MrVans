@@ -146,20 +146,7 @@ public class HomeAPI {
 		return contact;
 		
 	}
-	
-	@GetMapping("/vision")
-	public Vision vision() {
-		return new Vision("");
-	}
-	
-	@GetMapping("/mission")
-	public Mission mission() {
-		return new Mission("Bằng chính sự tận tâm và trách nhiệm của mình, Mr.Vans sẽ luôn đồng hành thấu hiểu khách hàng của " + 
-				"mình như những người bạn. Mr.Vans cam kết sẽ mang đến những sản phẩm chất lượng tốt, có giá trị dinh " + 
-				"dưỡng cao cũng như làm KH hài lòng về dịch vụ, giá cả, đóng góp một phần nào đó nâng cao sức khỏe " + 
-				"của người tiêu dùng.");
-	}
-	
+
 	@Autowired
 	private GeneralValue_Repo generalValue_Repo;
 	
