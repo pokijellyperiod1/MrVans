@@ -133,6 +133,13 @@ public class HomeAPI {
 		
 		contact.setParagraph(listBenefit);
 		
+		contact.setVision(new Vision(""));
+		
+		contact.setMission(new Mission("Bằng chính sự tận tâm và trách nhiệm của mình, Mr.Vans sẽ luôn đồng hành thấu hiểu khách hàng của " + 
+				"mình như những người bạn. Mr.Vans cam kết sẽ mang đến những sản phẩm chất lượng tốt, có giá trị dinh " + 
+				"dưỡng cao cũng như làm KH hài lòng về dịch vụ, giá cả, đóng góp một phần nào đó nâng cao sức khỏe " + 
+				"của người tiêu dùng."));
+		
 		contact.setFooter("Chúng tôi hiểu KH của mình cần gì và luôn mong muốn đem lại giá trị tốt nhất cho KH. Đó cũng chính là " + 
 				"khẩu hiệu hàng đầu của công ty “Thấu hiểu từng bữa cơm”");
 		
