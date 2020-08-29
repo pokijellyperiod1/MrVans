@@ -5,13 +5,20 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tanky.MrVan.Convert.MonConvert;
 import com.tanky.MrVan.Entity.MonEntity;
+import com.tanky.MrVan.Repo.MonRepository;
 import com.tanky.MrVan.Service.MonService;
+import com.tanky.MrVan.dto.MonDTO;
 
 @RestController
 @RequestMapping("/api/menu")
@@ -19,6 +26,9 @@ public class ThucDonMonTheoNgay_API {
 
 	@Autowired
 	private MonService monService;
+	
+	@Autowired
+	private MonConvert monConvert;
 	
 	@GetMapping
 	public List<MonEntity> listsMon() {
@@ -45,13 +55,40 @@ public class ThucDonMonTheoNgay_API {
 		
 		return monService.findAllByDay(dayOfWeek);
 		
-		
-		
-		
-		
-		
-		
 	}
+	
+	
+	@PostMapping("/add")
+	public ResponseEntity<MonEntity> AddMon(@RequestBody MonDTO monDTO) {
+		MonEntity entity = monConvert.from_DTO_To_Entity(monDTO);
+		
+		return ResponseEntity.ok(monService.save(entity));
+	}
+	
+	@PostMapping("/all")
+	public ResponseEntity<MonEntity> AddListMon(@RequestBody List<MonEntity> monEntity) {
+		
+		
+		return ResponseEntity.ok(monService.saveList(monEntity));
+	}
+	
+	@PutMapping("/update/{id}")
+	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity) {
+		MonEntity oldEntity = monService.findOneById(id);
+		monEntity.setId(id);
+		
+		
+		return ResponseEntity.ok(monService.save(monEntity));
+	}
+	
+	@DeleteMapping("/delete/{id}")
+	public void delete(@PathVariable String id) {
+		
+		monService.delete(id);	
+	}
+	
+	
+	
 	
 	
 	

@@ -29,8 +29,10 @@ public class MonService {
 	@Autowired
 	private MonRepository monRepository;
 	
+	
 	public List<MonEntity> getNullEntity() {
 		return new ArrayList<MonEntity>();
+		
 	}
 	
 	public List<MonEntity> getAll() {
@@ -68,13 +70,12 @@ public class MonService {
 		return monRepository.save(newMonEntity);
 	}
 	
-	public boolean delete(String idMon) {
+	public void delete(String idMon) {
 		MonEntity monEntity = monRepository.findById(idMon).orElse(null);
 		if (monEntity != null) {
 			monRepository.delete(monEntity);
-			return true;
 		}
-		return false;
+		
 	}
 	
 	
