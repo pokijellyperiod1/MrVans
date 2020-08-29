@@ -44,10 +44,10 @@ public class Mon_API {
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<MonEntity> AddListMon(@RequestBody List<MonEntity> monEntity) {
+	public void AddListMon(@RequestBody List<MonEntity> monEntity) {
 		
 		
-		return ResponseEntity.ok(monService.saveList(monEntity));
+		monService.saveList(monEntity);
 	}
 	
 	@PutMapping

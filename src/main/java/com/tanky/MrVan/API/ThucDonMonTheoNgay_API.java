@@ -10,8 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tanky.MrVan.Convert.MonConvert;
@@ -66,10 +68,9 @@ public class ThucDonMonTheoNgay_API {
 	}
 	
 	@PostMapping("/add/all")
-	public ResponseEntity<MonEntity> AddListMon(@RequestBody List<MonEntity> monEntity) {
+	public void AddListMon(@RequestBody List<MonEntity> monEntity) {
 		
-		
-		return ResponseEntity.ok(monService.saveList(monEntity));
+		monService.saveList(monEntity);
 	}
 	
 	@PutMapping("/update/{id}")
@@ -85,6 +86,22 @@ public class ThucDonMonTheoNgay_API {
 	public void delete(@PathVariable String id) {
 		
 		monService.delete(id);	
+	}
+	
+	@GetMapping("/mon/{name}")
+	public List<MonEntity> findAllBy_TenMon(@PathVariable String name) {
+		return monService.findAllByName(name);
+	}
+	
+	@PostMapping("/mon/updateAll/{oldName}/{newName}")
+	public void updateAll(@PathVariable String oldName, @PathVariable String newName) {
+		List<MonEntity> listMonEntity = monService.findAllByName(oldName);
+		
+		for (MonEntity monEntity : listMonEntity) {
+			monEntity.setName(newName);
+		}
+		 
+		monService.saveList(listMonEntity);
 	}
 	
 	

@@ -39,6 +39,10 @@ public class MonService {
 		return monRepository.findAll();
 	}
 	
+	public List<MonEntity> findAllByName(String name) {
+		return monRepository.findAllByName(name);
+	}
+	
 	public MonEntity findOneById(String idMon) {
 		return monRepository.findOneById(idMon);
 	}
@@ -51,11 +55,11 @@ public class MonService {
 		return monRepository.save(entity);
 	}
 	
-	public MonEntity saveList(List<MonEntity> entity) {
+	public void saveList(List<MonEntity> entity) {
 		for (MonEntity monEntity : entity) {
 			monRepository.save(monEntity);
 		}
-		return null;
+		System.out.println("Save Succeed.");
 	}
 	
 	public MonEntity update(MonEntity monEntity) {
