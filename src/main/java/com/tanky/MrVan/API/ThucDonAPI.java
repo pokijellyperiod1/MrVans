@@ -24,7 +24,7 @@ import com.tanky.MrVan.dto.MonDTO;
 
 @RestController
 @RequestMapping("/api/menu")
-public class ThucDonMonTheoNgay_API {
+public class ThucDonAPI {
 
 	@Autowired
 	private MonService monService;
