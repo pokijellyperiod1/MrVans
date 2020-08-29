@@ -59,13 +59,13 @@ public class ThucDonMonTheoNgay_API {
 	
 	
 	@PostMapping("/add")
-	public ResponseEntity<MonEntity> AddMon(@RequestBody MonDTO monDTO) {
-		MonEntity entity = monConvert.from_DTO_To_Entity(monDTO);
+	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity) {
+
 		
 		return ResponseEntity.ok(monService.save(entity));
 	}
 	
-	@PostMapping("/all")
+	@PostMapping("/add/all")
 	public ResponseEntity<MonEntity> AddListMon(@RequestBody List<MonEntity> monEntity) {
 		
 		

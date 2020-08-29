@@ -40,7 +40,7 @@ public class MonService {
 	}
 	
 	public MonEntity findOneById(String idMon) {
-		return monRepository.findById(idMon).get();
+		return monRepository.findOneById(idMon);
 	}
 	
 	public List<MonEntity> findAllByDay(int day) {

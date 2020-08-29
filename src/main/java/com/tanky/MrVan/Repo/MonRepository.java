@@ -11,6 +11,7 @@ import com.tanky.MrVan.Entity.MonEntity;
 public interface MonRepository extends MongoRepository<MonEntity, String> {
 
 	MonEntity findOneByName(String name);
+	MonEntity findOneById(String id);
 	MonEntity findOneByPrice(int price);
 	List<MonEntity> findAllByDay(int day);
 	

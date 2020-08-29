@@ -24,8 +24,8 @@ public class MonEntity {
 	
     private int amount;
     
-    private String imageURL = "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png";
-
+//    private String imageURL = "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png";
+    private String imageURL;
 
 	public MonEntity() {
 		super();

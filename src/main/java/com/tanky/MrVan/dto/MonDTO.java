@@ -8,8 +8,9 @@ public class MonDTO {
 	private String day;
     private String name;
     private String description;
-    private String price;
+    private String price = "Liên hệ";
     private int amount;
+    private String imageURL = "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png";
    
     
 	public String getId() {
@@ -49,6 +50,13 @@ public class MonDTO {
 	public void setDay(String day) {
 		this.day = day;
 	}
+	public String getImageURL() {
+		return imageURL;
+	}
+	public void setImageURL(String imageURL) {
+		this.imageURL = imageURL;
+	}
+	
 	
 	
 	
