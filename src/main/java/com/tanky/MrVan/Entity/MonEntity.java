@@ -16,7 +16,7 @@ public class MonEntity {
 	
 	private String name;
 	
-	private int day;
+	private int[] day;
 	
     private String description;
 	
@@ -76,11 +76,11 @@ public class MonEntity {
 		return price;
 	}
 
-	public int getDay() {
+	public int[] getDay() {
 		return day;
 	}
 
-	public void setDay(int day) {
+	public void setDay(int[] day) {
 		this.day = day;
 	}
 
