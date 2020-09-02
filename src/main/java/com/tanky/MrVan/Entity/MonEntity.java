@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import com.tanky.MrVan.dto.Image;
 
-@Document(collection = "mon")
+@Document(collection = "mon_update")
 public class MonEntity {
 
 	@Id
