@@ -1,10 +1,10 @@
 package com.tanky.MrVan.API;
 
-import java.io.IOException;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.util.Base64;
 import java.util.Calendar;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,12 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
-import com.cloudinary.Cloudinary;
-import com.cloudinary.utils.ObjectUtils;
 import com.tanky.MrVan.Convert.MonConvert;
 import com.tanky.MrVan.Entity.MonEntity;
 import com.tanky.MrVan.Service.MonService;
@@ -68,6 +64,8 @@ public class ThucDonAPI {
 	
 	@PostMapping("/add")
 	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity) {
+		
+		
 		String URL = fileUtils.decoder(entity.getImage(), "outputFile");
 		entity.setImage(URL);
 		return ResponseEntity.ok(monService.save(entity));

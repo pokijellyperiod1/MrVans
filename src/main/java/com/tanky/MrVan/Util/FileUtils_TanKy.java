@@ -35,9 +35,10 @@ public class FileUtils_TanKy {
 	
 	
 	public static String decoder(String base64Image, String pathFile) {
+		String imageDataBytes =base64Image.substring(base64Image.indexOf(",")+1);
 		  try (FileOutputStream imageOutFile = new FileOutputStream(pathFile)) {
 		    // Converting a Base64 String into Image byte array
-		    byte[] imageByteArray = Base64.getDecoder().decode(base64Image);
+		    byte[] imageByteArray = Base64.getDecoder().decode(imageDataBytes);
 		    imageOutFile.write(imageByteArray);
 
 	        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
