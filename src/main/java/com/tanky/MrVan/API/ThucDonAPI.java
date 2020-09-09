@@ -1,7 +1,10 @@
 package com.tanky.MrVan.API;
 
+import java.io.IOException;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,17 +13,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.tanky.MrVan.Convert.MonConvert;
 import com.tanky.MrVan.Entity.MonEntity;
-import com.tanky.MrVan.Repo.MonRepository;
 import com.tanky.MrVan.Service.MonService;
-import com.tanky.MrVan.dto.MonDTO;
 
 @RestController
 @RequestMapping("/api/menu")
@@ -61,8 +64,26 @@ public class ThucDonAPI {
 	
 	
 	@PostMapping("/add")
-	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity) {
+	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity, @RequestParam("files") MultipartFile file) {
 
+		 Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+					"cloud_name", "dbqzpdgpi",
+					"api_key", "463648723862277",
+					"api_secret", "Bo1MvViceCLF9E0HB6hOz9MBC10"
+					));
+	    	
+
+	        Map<String, String> map = new HashMap<String, String>();
+			try {
+				map = cloudinary.uploader().upload(file.getBytes(),
+				            ObjectUtils.asMap("resource_type", "auto"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	        String URL = map.getOrDefault("url", "null URL");
+	        entity.setImage(URL);
 		
 		return ResponseEntity.ok(monService.save(entity));
 	}

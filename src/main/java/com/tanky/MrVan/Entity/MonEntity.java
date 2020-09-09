@@ -96,13 +96,15 @@ public class MonEntity {
 		this.amount = amount;
 	}
 
-	public String getImageURL() {
+	public String getImage() {
 		return image;
 	}
 
-	public void setImageURL(String imageURL) {
-		this.image = imageURL;
+	public void setImage(String image) {
+		this.image = image;
 	}
+
+	
 
 	
 	
