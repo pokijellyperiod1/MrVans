@@ -51,6 +51,13 @@
 			<version>1.14.0</version>
 		</dependency>
 
+		<!-- Base64 to Image -->
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.6</version>
+		</dependency>
+
 
 		<!-- Khi nhung folder Frontend vao thi nho xoa cai Thymeleaf nay, neu ko 
 			la ko qua trang index dc -->

@@ -24,6 +24,7 @@ import com.cloudinary.utils.ObjectUtils;
 import com.tanky.MrVan.Convert.MonConvert;
 import com.tanky.MrVan.Entity.MonEntity;
 import com.tanky.MrVan.Service.MonService;
+import com.tanky.MrVan.Util.FileUtils_TanKy;
 
 @RestController
 @RequestMapping("/api/menu")
@@ -62,27 +63,11 @@ public class ThucDonAPI {
 		
 	}
 	
-	
+	@Autowired
+	private FileUtils_TanKy fileUtils;
 	@PostMapping("/add")
-	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity, @RequestParam("files") MultipartFile file) {
-		 Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
-					"cloud_name", "dbqzpdgpi",
-					"api_key", "463648723862277",
-					"api_secret", "Bo1MvViceCLF9E0HB6hOz9MBC10"
-					));
-	    	
-
-	        Map<String, String> map = new HashMap<String, String>();
-			try {
-				map = cloudinary.uploader().upload(file.getBytes(),
-				            ObjectUtils.asMap("resource_type", "auto"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	        String URL = map.getOrDefault("url", "null URL");
-	        entity.setImage(URL);
+	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity) {
+		fileUtils.decoder(entity.getImage(), "outputFile");
 		
 		return ResponseEntity.ok(monService.save(entity));
 	}
@@ -94,29 +79,10 @@ public class ThucDonAPI {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity , @RequestParam("files") MultipartFile file) {
+	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity) {
 		MonEntity oldEntity = monService.findOneById(id);
-		
-
-		 Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
-					"cloud_name", "dbqzpdgpi",
-					"api_key", "463648723862277",
-					"api_secret", "Bo1MvViceCLF9E0HB6hOz9MBC10"
-					));
-	    	
-
-	        Map<String, String> map = new HashMap<String, String>();
-			try {
-				map = cloudinary.uploader().upload(file.getBytes(),
-				            ObjectUtils.asMap("resource_type", "auto"));
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-	        String URL = map.getOrDefault("url", "null URL");
-	        monEntity.setImage(URL);
-	        monEntity.setId(id);
+		monEntity.setId(id);
+		fileUtils.decoder(monEntity.getImage(), "test");
 		
 		
 		return ResponseEntity.ok(monService.save(monEntity));
