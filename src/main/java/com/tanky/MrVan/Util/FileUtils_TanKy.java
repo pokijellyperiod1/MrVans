@@ -34,12 +34,11 @@ public class FileUtils_TanKy {
 		}
 	
 	
-	public static void decoder(String base64Image, String pathFile) {
+	public static String decoder(String base64Image, String pathFile) {
 		  try (FileOutputStream imageOutFile = new FileOutputStream(pathFile)) {
 		    // Converting a Base64 String into Image byte array
 		    byte[] imageByteArray = Base64.getDecoder().decode(base64Image);
 		    imageOutFile.write(imageByteArray);
-		   
 
 	        Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
 					"cloud_name", "dbqzpdgpi",
@@ -50,7 +49,8 @@ public class FileUtils_TanKy {
 
 	        Map<String, String> map = cloudinary.uploader().upload(imageByteArray,
 	                    ObjectUtils.asMap("resource_type", "auto"));
-		    
+	        String URL = map.getOrDefault("url", "null URL");  
+			  return URL;
 		    
 		  } catch (FileNotFoundException e) {
 		    System.out.println("Image not found" + e);
@@ -58,7 +58,7 @@ public class FileUtils_TanKy {
 		    System.out.println("Exception while reading the Image " + ioe);
 		  }
 		  
-		  
+		 return "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png";
 		  
 		
 		}

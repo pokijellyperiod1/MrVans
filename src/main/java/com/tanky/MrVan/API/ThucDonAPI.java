@@ -65,10 +65,11 @@ public class ThucDonAPI {
 	
 	@Autowired
 	private FileUtils_TanKy fileUtils;
+	
 	@PostMapping("/add")
 	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity) {
-		fileUtils.decoder(entity.getImage(), "outputFile");
-		
+		String URL = fileUtils.decoder(entity.getImage(), "outputFile");
+		entity.setImage(URL);
 		return ResponseEntity.ok(monService.save(entity));
 	}
 	
@@ -82,8 +83,8 @@ public class ThucDonAPI {
 	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity) {
 		MonEntity oldEntity = monService.findOneById(id);
 		monEntity.setId(id);
-		fileUtils.decoder(monEntity.getImage(), "test");
-		
+		String URL = fileUtils.decoder(monEntity.getImage(), "test");
+		monEntity.setImage(URL);
 		
 		return ResponseEntity.ok(monService.save(monEntity));
 	}
