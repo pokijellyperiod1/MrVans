@@ -65,7 +65,6 @@ public class ThucDonAPI {
 	
 	@PostMapping("/add")
 	public ResponseEntity<MonEntity> AddMon(@RequestBody MonEntity entity, @RequestParam("files") MultipartFile file) {
-
 		 Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
 					"cloud_name", "dbqzpdgpi",
 					"api_key", "463648723862277",
@@ -95,9 +94,29 @@ public class ThucDonAPI {
 	}
 	
 	@PutMapping("/update/{id}")
-	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity) {
+	public ResponseEntity<MonEntity> UpdateMon(@PathVariable String id, @RequestBody MonEntity monEntity , @RequestParam("files") MultipartFile file) {
 		MonEntity oldEntity = monService.findOneById(id);
-		monEntity.setId(id);
+		
+
+		 Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
+					"cloud_name", "dbqzpdgpi",
+					"api_key", "463648723862277",
+					"api_secret", "Bo1MvViceCLF9E0HB6hOz9MBC10"
+					));
+	    	
+
+	        Map<String, String> map = new HashMap<String, String>();
+			try {
+				map = cloudinary.uploader().upload(file.getBytes(),
+				            ObjectUtils.asMap("resource_type", "auto"));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+	        String URL = map.getOrDefault("url", "null URL");
+	        monEntity.setImage(URL);
+	        monEntity.setId(id);
 		
 		
 		return ResponseEntity.ok(monService.save(monEntity));
