@@ -27,8 +27,8 @@ public class SecreteKeyService {
 		return secreteKeyRepo.findAll();
 	}
 	
-	public SecreteKeyEntity findOneBySecreteKey(String secreteKey) {
-		return secreteKeyRepo.findOneBySecreteKey(secreteKey);
+	public SecreteKeyEntity findOneBySecretKey(String secretKey) {
+		return secreteKeyRepo.findOneBySecretKey(secretKey);
 	}
 	
 	public SecreteKeyEntity save(SecreteKeyEntity secreteKeyEntity) {

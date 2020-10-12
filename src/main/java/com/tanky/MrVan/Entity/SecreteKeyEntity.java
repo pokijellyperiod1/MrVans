@@ -12,21 +12,21 @@ import org.springframework.data.mongodb.core.mapping.Document;
  * @author tankyhuynh
  *
  */
-@Document("Secretekey")
+@Document("secretekey")
 public class SecreteKeyEntity {
 
 	@Id
 	private String id;
-	private String secreteKey;
+	private String secretKey;
 	
 	public SecreteKeyEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public SecreteKeyEntity(String id, String secreteKey) {
+	public SecreteKeyEntity(String id, String secretKey) {
 		super();
 		this.id = id;
-		this.secreteKey = secreteKey;
+		this.secretKey = secretKey;
 	}
 
 	public String getId() {
@@ -37,13 +37,15 @@ public class SecreteKeyEntity {
 		this.id = id;
 	}
 
-	public String getSecreteKey() {
-		return secreteKey;
+	public String getSecretKey() {
+		return secretKey;
 	}
 
-	public void setSecreteKey(String secreteKey) {
-		this.secreteKey = secreteKey;
+	public void setSecretKey(String secretKey) {
+		this.secretKey = secretKey;
 	}
+
+	
 	
 	
 	

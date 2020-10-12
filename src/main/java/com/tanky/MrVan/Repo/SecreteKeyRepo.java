@@ -17,6 +17,6 @@ import com.tanky.MrVan.Entity.SecreteKeyEntity;
 @Repository
 public interface SecreteKeyRepo extends MongoRepository<SecreteKeyEntity, String> {
 
-	SecreteKeyEntity findOneBySecreteKey(String secreteKey);
+	SecreteKeyEntity findOneBySecretKey(String secretKey);
 	
 }

@@ -1,0 +1,32 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fc68a5c3401, pid=21738, tid=22175
+#
+# JRE version: OpenJDK Runtime Environment (11.0.6+10) (build 11.0.6+10-post-Ubuntu-1ubuntu118.04.1)
+# Java VM: OpenJDK 64-Bit Server VM (11.0.6+10-post-Ubuntu-1ubuntu118.04.1, mixed mode, sharing, tiered, compressed oops, g1 gc, linux-amd64)
+# Problematic frame:
+# C  [libjimage.so+0x2401]
+#
+# Core dump will be written. Default location: Core dumps may be processed with "/lib/systemd/systemd-coredump %P %u %g %s %t 9223372036854775808 %e" (or dumping to /home/tanky/Documents/Springboot Project/MrVans/core.21738)
+#
+# If you would like to submit a bug report, please visit:
+#   https://bugs.launchpad.net/ubuntu/+source/openjdk-lts
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:40043 -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=44153 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=localhost -Dspring.jmx.enabled=true -Dspring.liveBeansView.mbeanDomain -Dspring.application.admin.enabled=true -Djava.security.egd=file:/dev/./urandom -Xverify:none -XX:TieredStopAtLevel=1 -Dspring.boot.project.name=MrVan -javaagent:/home/tanky/Desktop/eclipse/jee-2019-123/eclipse/configuration/org.eclipse.osgi/1402/0/.cp/lib/javaagent-shaded.jar -Dfile.encoding=UTF-8 com.tanky.MrVan.MrVanApplication
+
+Host: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz, 8 cores, 3G, Linux Mint 19.3 Tricia
+Time: Mon Oct 12 10:17:20 2020 +07 elapsed time: 67 seconds (0d 0h 1m 7s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007fc620001800):  JavaThread "RMI TCP Connection(1)-127.0.0.1" daemon [_thread_in_vm, id=22175, stack(0x00007fc63f9f6000,0x00007fc63faf7000)]
+
+Stack: [0x00007fc63f9f6000,0x00007fc63faf7000],  sp=0x00007fc63faf1eb0,  free space=1007k
+Native frames: (J=compiled Java code, A=aot compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libjimage.so+0x2401]
+C  [libjimage.so+0x30ea]
+C  [libjimage.so+0x35c6]

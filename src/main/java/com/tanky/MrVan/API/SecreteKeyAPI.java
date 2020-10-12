@@ -34,19 +34,20 @@ public class SecreteKeyAPI {
 	public List<SecreteKeyEntity> getAll() {
 		return secreateService.getAll();
 	}
-	
 	@PostMapping("/add")
 	public ResponseEntity<SecreteKeyEntity> save(@RequestBody SecreteKeyEntity secreteKeyEntity) {
 		return ResponseEntity.ok(secreateService.save(secreteKeyEntity));
 	}
 	
 	@PostMapping
-	public ResponseEntity<String> compareSecreteKey(@RequestBody String entity) {
-		if (secreateService.findOneBySecreteKey(entity) != null) {
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+	public ResponseEntity<String> compareSecreteKey(@RequestBody String secreatKey) {
+		SecreteKeyEntity secreteKeyEntity = secreateService.findOneBySecretKey(secreatKey.toString());
+		secreatKey = secreatKey.substring(0, secreatKey.length()-1);
+		if (secreateService.findOneBySecretKey(secreatKey) == null) {
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Fail");
 		}
 		
-		return ResponseEntity.ok().build();
+		return ResponseEntity.ok().body("Success");
 	}
 	
 }
